@@ -1,0 +1,48 @@
+﻿@model RestaurantManager.Models.Kitchen
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Kitchen</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Temperature)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Temperature)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Setting)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Setting)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Chef)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Chef.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Utensil)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Utensil.Id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

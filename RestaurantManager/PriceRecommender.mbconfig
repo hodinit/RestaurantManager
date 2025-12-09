@@ -1,0 +1,353 @@
+﻿{
+  "Scenario": "Regression",
+  "DataSource": {
+    "Version": 3,
+    "EscapeCharacter": "\"",
+    "ReadMultiLines": false,
+    "KeepDiacritics": false,
+    "KeepPunctuations": false,
+    "AllowQuoting": false,
+    "Type": "TabularFile",
+    "FilePath": "C:\\Users\\horat\\Desktop\\RECIPE\\mcdonalds_FINAL.csv",
+    "Delimiter": ",",
+    "DecimalMarker": ".",
+    "HasHeader": true,
+    "ColumnProperties": [
+      {
+        "ColumnName": "Category",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": true,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Item",
+        "ColumnPurpose": "Ignore",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "Calories",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "prep_time",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "production_cost",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      },
+      {
+        "ColumnName": "selling_price",
+        "ColumnPurpose": "Label",
+        "ColumnDataFormat": "Single",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 5
+      }
+    ]
+  },
+  "Environment": {
+    "Type": "LocalCPU",
+    "Version": 1
+  },
+  "RunHistory": {
+    "Version": 3,
+    "Type": "Result",
+    "Trials": [
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "FastTreeRegression",
+        "Score": 0.94827941268485882,
+        "RuntimeInSeconds": 0.993,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3",
+          "e0": {
+            "OutputColumnNames": [
+              "Category"
+            ],
+            "InputColumnNames": [
+              "Category"
+            ]
+          },
+          "e1": {
+            "OutputColumnNames": [
+              "Calories",
+              "prep_time",
+              "production_cost"
+            ],
+            "InputColumnNames": [
+              "Calories",
+              "prep_time",
+              "production_cost"
+            ]
+          },
+          "e2": {
+            "InputColumnNames": [
+              "Category",
+              "Calories",
+              "prep_time",
+              "production_cost"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e3": {
+            "NumberOfLeaves": 13,
+            "MinimumExampleCountPerLeaf": 2,
+            "NumberOfTrees": 25,
+            "MaximumBinCountPerFeature": 46,
+            "FeatureFraction": 0.8894841032853531,
+            "LearningRate": 0.19230270019173595,
+            "LabelColumnName": "selling_price",
+            "FeatureColumnName": "Features",
+            "DiskTranspose": false
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "FastTreeRegression",
+        "Score": 0.948066038732869,
+        "RuntimeInSeconds": 1.005,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3",
+          "e0": {
+            "OutputColumnNames": [
+              "Category"
+            ],
+            "InputColumnNames": [
+              "Category"
+            ]
+          },
+          "e1": {
+            "OutputColumnNames": [
+              "Calories",
+              "prep_time",
+              "production_cost"
+            ],
+            "InputColumnNames": [
+              "Calories",
+              "prep_time",
+              "production_cost"
+            ]
+          },
+          "e2": {
+            "InputColumnNames": [
+              "Category",
+              "Calories",
+              "prep_time",
+              "production_cost"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e3": {
+            "NumberOfLeaves": 13,
+            "MinimumExampleCountPerLeaf": 2,
+            "NumberOfTrees": 24,
+            "MaximumBinCountPerFeature": 45,
+            "FeatureFraction": 0.88963478673834251,
+            "LearningRate": 0.19254848116486675,
+            "LabelColumnName": "selling_price",
+            "FeatureColumnName": "Features",
+            "DiskTranspose": false
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "FastTreeRegression",
+        "Score": 0.94785831384522345,
+        "RuntimeInSeconds": 1.157,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3",
+          "e0": {
+            "OutputColumnNames": [
+              "Category"
+            ],
+            "InputColumnNames": [
+              "Category"
+            ]
+          },
+          "e1": {
+            "OutputColumnNames": [
+              "Calories",
+              "prep_time",
+              "production_cost"
+            ],
+            "InputColumnNames": [
+              "Calories",
+              "prep_time",
+              "production_cost"
+            ]
+          },
+          "e2": {
+            "InputColumnNames": [
+              "Category",
+              "Calories",
+              "prep_time",
+              "production_cost"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e3": {
+            "NumberOfLeaves": 13,
+            "MinimumExampleCountPerLeaf": 2,
+            "NumberOfTrees": 25,
+            "MaximumBinCountPerFeature": 46,
+            "FeatureFraction": 0.88946196715156922,
+            "LearningRate": 0.19248077580696249,
+            "LabelColumnName": "selling_price",
+            "FeatureColumnName": "Features",
+            "DiskTranspose": false
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "FastTreeRegression",
+        "Score": 0.94785529830647552,
+        "RuntimeInSeconds": 0.95,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3",
+          "e0": {
+            "OutputColumnNames": [
+              "Category"
+            ],
+            "InputColumnNames": [
+              "Category"
+            ]
+          },
+          "e1": {
+            "OutputColumnNames": [
+              "Calories",
+              "prep_time",
+              "production_cost"
+            ],
+            "InputColumnNames": [
+              "Calories",
+              "prep_time",
+              "production_cost"
+            ]
+          },
+          "e2": {
+            "InputColumnNames": [
+              "Category",
+              "Calories",
+              "prep_time",
+              "production_cost"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e3": {
+            "NumberOfLeaves": 12,
+            "MinimumExampleCountPerLeaf": 2,
+            "NumberOfTrees": 29,
+            "MaximumBinCountPerFeature": 45,
+            "FeatureFraction": 0.889767107619512,
+            "LearningRate": 0.19942990783732484,
+            "LabelColumnName": "selling_price",
+            "FeatureColumnName": "Features",
+            "DiskTranspose": false
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "FastTreeRegression",
+        "Score": 0.9478520824972122,
+        "RuntimeInSeconds": 1.008,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3",
+          "e0": {
+            "OutputColumnNames": [
+              "Category"
+            ],
+            "InputColumnNames": [
+              "Category"
+            ]
+          },
+          "e1": {
+            "OutputColumnNames": [
+              "Calories",
+              "prep_time",
+              "production_cost"
+            ],
+            "InputColumnNames": [
+              "Calories",
+              "prep_time",
+              "production_cost"
+            ]
+          },
+          "e2": {
+            "InputColumnNames": [
+              "Category",
+              "Calories",
+              "prep_time",
+              "production_cost"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e3": {
+            "NumberOfLeaves": 13,
+            "MinimumExampleCountPerLeaf": 2,
+            "NumberOfTrees": 25,
+            "MaximumBinCountPerFeature": 45,
+            "FeatureFraction": 0.88536685127711812,
+            "LearningRate": 0.19361022500957822,
+            "LabelColumnName": "selling_price",
+            "FeatureColumnName": "Features",
+            "DiskTranspose": false
+          }
+        }
+      }
+    ],
+    "Estimators": {
+      "e0": "OneHotEncoding",
+      "e1": "ReplaceMissingValues",
+      "e2": "Concatenate",
+      "e3": "FastTreeRegression",
+      "e4": "FastForestRegression",
+      "e5": "LightGbmRegression",
+      "e6": "LbfgsPoissonRegressionRegression",
+      "e7": "SdcaRegression"
+    },
+    "Schema": "e0 * e1 * e2 * (e3 + e4 + e5 + e6 + e7)",
+    "MetricName": "RSquared",
+    "ModelFilePath": "D:\\MASTER\\medii avansate\\RestaurantManager\\PriceRecommender.mlnet"
+  },
+  "Type": "TrainingConfig",
+  "Version": 5,
+  "TrainingOption": {
+    "Version": 2,
+    "Subsampling": false,
+    "Type": "RegressionTrainingOption",
+    "TrainingTime": 600,
+    "LabelColumn": "selling_price",
+    "ValidationOption": {
+      "Version": 0,
+      "Type": "CrossValidationValidationOption",
+      "NumberOfFolds": 5
+    }
+  }
+}

@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="../PriceRecommenderWebApi/PriceRecommenderWebApi.csproj" />
+  <Project Path="RestaurantManager.csproj" />
+</Solution>

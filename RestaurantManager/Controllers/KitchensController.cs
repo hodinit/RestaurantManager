@@ -22,7 +22,7 @@ namespace RestaurantManager.Controllers
         // GET: Kitchens
         public async Task<IActionResult> Index()
         {
-            var restaurantManagerContext = _context.Kitchen.Include(k => k.Chef).Include(k => k.Utensil);
+            var restaurantManagerContext = _context.Kitchen.Include(k => k.Chef).Include(k => k.Utensil).Include(k => k.Location);
             return View(await restaurantManagerContext.ToListAsync());
         }
 
@@ -37,6 +37,7 @@ namespace RestaurantManager.Controllers
             var kitchen = await _context.Kitchen
                 .Include(k => k.Chef)
                 .Include(k => k.Utensil)
+                .Include(k => k.Location)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (kitchen == null)
             {
@@ -51,6 +52,7 @@ namespace RestaurantManager.Controllers
         {
             ViewData["ChefID"] = new SelectList(_context.Chef, "Id", "Id");
             ViewData["UtensilID"] = new SelectList(_context.Utensil, "Id", "Id");
+            ViewData["LocationID"] = new SelectList(_context.Location, "Id", "Id");
             return View();
         }
 
@@ -69,6 +71,7 @@ namespace RestaurantManager.Controllers
             }
             ViewData["ChefID"] = new SelectList(_context.Chef, "Id", "Id", kitchen.ChefID);
             ViewData["UtensilID"] = new SelectList(_context.Utensil, "Id", "Id", kitchen.UtensilID);
+            ViewData["LocationID"] = new SelectList(_context.Location, "Id", "Id", kitchen.LocationID);
             return View(kitchen);
         }
 
@@ -87,6 +90,7 @@ namespace RestaurantManager.Controllers
             }
             ViewData["ChefID"] = new SelectList(_context.Chef, "Id", "Id", kitchen.ChefID);
             ViewData["UtensilID"] = new SelectList(_context.Utensil, "Id", "Id", kitchen.UtensilID);
+            ViewData["LocationID"] = new SelectList(_context.Location, "Id", "Id", kitchen.LocationID);
             return View(kitchen);
         }
 
@@ -95,7 +99,7 @@ namespace RestaurantManager.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Temperature,Setting,ChefID,UtensilID")] Kitchen kitchen)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Temperature,Setting,ChefID,UtensilID,LocationID")] Kitchen kitchen)
         {
             if (id != kitchen.Id)
             {
@@ -124,6 +128,7 @@ namespace RestaurantManager.Controllers
             }
             ViewData["ChefID"] = new SelectList(_context.Chef, "Id", "Id", kitchen.ChefID);
             ViewData["UtensilID"] = new SelectList(_context.Utensil, "Id", "Id", kitchen.UtensilID);
+            ViewData["LocationID"] = new SelectList(_context.Location, "Id", "Id", kitchen.LocationID);
             return View(kitchen);
         }
 
@@ -138,6 +143,7 @@ namespace RestaurantManager.Controllers
             var kitchen = await _context.Kitchen
                 .Include(k => k.Chef)
                 .Include(k => k.Utensil)
+                .Include(k => k.Location)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (kitchen == null)
             {

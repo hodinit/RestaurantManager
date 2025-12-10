@@ -6,5 +6,7 @@ namespace RestaurantManager.Models
         public string Name { get; set; }
         public string Adress { get; set; }
         public int Number { get; set; }
+
+        public ICollection<Kitchen>? Kitchens { get; set; }
     }
 }

@@ -8,10 +8,10 @@
         public string Setting { get; set; }
         public int? ChefID { get; set; }
         public int? UtensilID { get; set; }
+        public int? LocationID { get; set; }
 
-        // Navigation property for related MenuItems
         public Chef? Chef { get; set; }
         public Utensil? Utensil { get; set; }
-
+        public Location? Location { get; set; }
     }
 }

@@ -29,7 +29,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="Measure_unit" class="control-label"></label>
-                <input asp-for="Measure_unit" class="form-control" />
+                <select asp-for="Measure_unit" class="form-control">
+                    <option value="">Select</option>
+                    <option value="kg">kg</option>
+                    <option value="L">L</option>
+                    <option value="pcs">pcs</option>
+                </select>
                 <span asp-validation-for="Measure_unit" class="text-danger"></span>
             </div>
             <div class="form-group form-check">

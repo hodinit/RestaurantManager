@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option csharp_namespace = "LocationGrpcService";
+
+package location;
+
+service LocationService {
+	rpc GetAll (Empty) returns (LocationList) {}
+	rpc Get (LocationId) returns (Location) {}
+	rpc Insert (Location) returns (Empty) {}
+	rpc Update (Location) returns (Location) {}
+	rpc Delete (LocationId) returns (Empty) {}
+}
+
+message Empty {}
+
+message Location {
+	int32 LocationId = 1;
+	string name = 2;
+	string adress = 3;
+	int32 number = 4;
+}
+message LocationList {
+	repeated Location item = 1;
+}
+message LocationId {
+	int32 id = 1;
+}

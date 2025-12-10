@@ -20,5 +20,6 @@ namespace RestaurantManager.Data
         public DbSet<RestaurantManager.Models.Utensil> Utensil { get; set; } = default!;
         public DbSet<RestaurantManager.Models.Kitchen> Kitchen { get; set; } = default!;
         public DbSet<RestaurantManager.Models.Chef> Chef { get; set; } = default!;
+        public DbSet<RestaurantManager.Models.Location> Location { get; set; } = default!;
     }
 }

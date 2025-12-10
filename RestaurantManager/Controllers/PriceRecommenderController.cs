@@ -18,7 +18,7 @@ namespace RestaurantManager.Controllers
         public IActionResult Index()
         {
             var model = new PriceRecommenderViewModel();
-            return View("~/Views/Home/Index.cshtml", model);
+            return View("~/Views/PriceRecommender/Index.cshtml", model);
         }
 
         // POST: RiskPrediction/Index
@@ -49,7 +49,7 @@ namespace RestaurantManager.Controllers
             }
             ViewBag.Message = model.score;
 
-            return View("~/Views/Home/Index.cshtml", model);
+            return View("~/Views/PriceRecommender/Index.cshtml", model);
         }
     }
 }

@@ -1,0 +1,62 @@
+﻿@model RestaurantManager.Models.PriceRecommenderViewModel
+
+@{
+    ViewData["Title"] = "Price Recommender";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h1 class="mb-4">Price Recommender</h1>
+
+            <form method="post" action="/PriceRecommender/Index">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label for="category" class="form-label">Category</label>
+                            <input type="text" class="form-control" id="category" name="category"
+                                   value="@Model?.category" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="calories" class="form-label">Calories</label>
+                            <input type="number" class="form-control" id="calories" name="calories"
+                                   value="@Model?.calories" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="prep_time" class="form-label">Prep Time (minutes)</label>
+                            <input type="number" step="0.1" class="form-control" id="prep_time" name="prep_time"
+                                   value="@Model?.prep_time" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="production_cost" class="form-label">Production Cost ($)</label>
+                            <input type="number" step="0.01" class="form-control" id="production_cost" name="production_cost"
+                                   value="@Model?.production_cost" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Get Price Recommendation</button>
+                    </div>
+                </div>
+            </form>
+
+            @if (Model?.score > 0)
+            {
+                <div>
+                    <h4 class="alert-heading">Recommended Price</h4>
+                    <p class="mb-0">$@Model.score.ToString("F2")</p>
+                </div>
+            }
+
+            @if (!string.IsNullOrEmpty(ViewBag.Message?.ToString()) && Model?.score <= 0)
+            {
+                <div class="alert alert-warning mt-4" role="alert">
+                    <h4 class="alert-heading">Warning</h4>
+                    <p class="mb-0">Unable to calculate recommended price. Please check your inputs.</p>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+

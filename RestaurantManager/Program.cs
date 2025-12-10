@@ -1,12 +1,17 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using RestaurantManager.Data;
+using RestaurantManager.Services;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<RestaurantManagerContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("RestaurantManagerContext") ?? throw new InvalidOperationException("Connection string 'RestaurantManagerContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddHttpClient<IPriceRecommenderService, PriceRecommenderService>(client =>
+{
+    client.BaseAddress = new Uri("https://localhost:57858/");
+});
 
 var app = builder.Build();
 

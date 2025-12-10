@@ -30,9 +30,4 @@
   <ItemGroup>
     <Folder Include="Migrations\" />
   </ItemGroup>
-  <ItemGroup Label="PriceRecommender">
-    <None Include="PriceRecommender.mlnet">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
 </Project>

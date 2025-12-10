@@ -1,8 +1,76 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model RestaurantManager.Models.PriceRecommenderViewModel
+
+@{
+    ViewData["Title"] = "Price Recommender";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h1 class="mb-4">Price Recommender</h1>
+            
+            <form method="post" action="/PriceRecommender/Index">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label for="category" class="form-label">Category</label>
+                            <input type="text" class="form-control" id="category" name="category" 
+                                   placeholder="e.g., Appetizer, Main Course, Dessert" 
+                                   value="@Model?.category" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="calories" class="form-label">Calories</label>
+                            <input type="number" class="form-control" id="calories" name="calories" 
+                                   placeholder="e.g., 500" 
+                                   value="@Model?.calories" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="prep_time" class="form-label">Prep Time (minutes)</label>
+                            <input type="number" step="0.1" class="form-control" id="prep_time" name="prep_time" 
+                                   placeholder="e.g., 15.5" 
+                                   value="@Model?.prep_time" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="production_cost" class="form-label">Production Cost ($)</label>
+                            <input type="number" step="0.01" class="form-control" id="production_cost" name="production_cost" 
+                                   placeholder="e.g., 5.50" 
+                                   value="@Model?.production_cost" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Get Price Recommendation</button>
+                    </div>
+                </div>
+            </form>
+
+            @if (Model?.score > 0)
+            {
+                <div class="alert alert-success mt-4" role="alert">
+                    <h4 class="alert-heading">Recommended Price</h4>
+                    <p class="mb-0"><strong>$@Model.score.ToString("F2")</strong></p>
+                </div>
+            }
+
+            @if (!string.IsNullOrEmpty(ViewBag.Message?.ToString()) && Model?.score <= 0)
+            {
+                <div class="alert alert-warning mt-4" role="alert">
+                    <h4 class="alert-heading">Warning</h4>
+                    <p class="mb-0">Unable to calculate recommended price. Please check your inputs.</p>
+                </div>
+            }
+        </div>
+    </div>
 </div>
+
+<style>
+    .form-label {
+        font-weight: 500;
+    }
+    
+    .card {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+</style>
+

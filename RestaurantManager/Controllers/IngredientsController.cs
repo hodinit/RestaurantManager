@@ -48,7 +48,7 @@ namespace RestaurantManager.Controllers
         // GET: Ingredients/Create
         public IActionResult Create()
         {
-            ViewData["SupplierID"] = new SelectList(_context.Supplier, "ID", "ID");
+            ViewData["SupplierID"] = new SelectList(_context.Supplier, "ID", "Name");
             return View();
         }
 
@@ -65,7 +65,7 @@ namespace RestaurantManager.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["SupplierID"] = new SelectList(_context.Supplier, "ID", "ID", ingredient.SupplierID);
+            ViewData["SupplierID"] = new SelectList(_context.Supplier, "ID", "Name", ingredient.SupplierID);
             return View(ingredient);
         }
 
@@ -82,7 +82,7 @@ namespace RestaurantManager.Controllers
             {
                 return NotFound();
             }
-            ViewData["SupplierID"] = new SelectList(_context.Supplier, "ID", "ID", ingredient.SupplierID);
+            ViewData["SupplierID"] = new SelectList(_context.Supplier, "ID", "Name", ingredient.SupplierID);
             return View(ingredient);
         }
 
@@ -118,7 +118,7 @@ namespace RestaurantManager.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["SupplierID"] = new SelectList(_context.Supplier, "ID", "ID", ingredient.SupplierID);
+            ViewData["SupplierID"] = new SelectList(_context.Supplier, "ID", "Name", ingredient.SupplierID);
             return View(ingredient);
         }
 

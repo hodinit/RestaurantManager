@@ -50,9 +50,9 @@ namespace RestaurantManager.Controllers
         // GET: Kitchens/Create
         public IActionResult Create()
         {
-            ViewData["ChefID"] = new SelectList(_context.Chef, "Id", "Id");
-            ViewData["UtensilID"] = new SelectList(_context.Utensil, "Id", "Id");
-            ViewData["LocationID"] = new SelectList(_context.Location, "Id", "Id");
+            ViewData["ChefID"] = new SelectList(_context.Chef, "Id", "Name");
+            ViewData["UtensilID"] = new SelectList(_context.Utensil, "Id", "Name");
+            ViewData["LocationID"] = new SelectList(_context.Location, "Id", "Name");
             return View();
         }
 
@@ -69,9 +69,9 @@ namespace RestaurantManager.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ChefID"] = new SelectList(_context.Chef, "Id", "Id", kitchen.ChefID);
-            ViewData["UtensilID"] = new SelectList(_context.Utensil, "Id", "Id", kitchen.UtensilID);
-            ViewData["LocationID"] = new SelectList(_context.Location, "Id", "Id", kitchen.LocationID);
+            ViewData["ChefID"] = new SelectList(_context.Chef, "Id", "Name", kitchen.ChefID);
+            ViewData["UtensilID"] = new SelectList(_context.Utensil, "Id", "Name", kitchen.UtensilID);
+            ViewData["LocationID"] = new SelectList(_context.Location, "Id", "Name", kitchen.LocationID);
             return View(kitchen);
         }
 
@@ -88,9 +88,9 @@ namespace RestaurantManager.Controllers
             {
                 return NotFound();
             }
-            ViewData["ChefID"] = new SelectList(_context.Chef, "Id", "Id", kitchen.ChefID);
-            ViewData["UtensilID"] = new SelectList(_context.Utensil, "Id", "Id", kitchen.UtensilID);
-            ViewData["LocationID"] = new SelectList(_context.Location, "Id", "Id", kitchen.LocationID);
+            ViewData["ChefID"] = new SelectList(_context.Chef, "Id", "Name", kitchen.ChefID);
+            ViewData["UtensilID"] = new SelectList(_context.Utensil, "Id", "Name", kitchen.UtensilID);
+            ViewData["LocationID"] = new SelectList(_context.Location, "Id", "Name", kitchen.LocationID);
             return View(kitchen);
         }
 
@@ -126,9 +126,9 @@ namespace RestaurantManager.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ChefID"] = new SelectList(_context.Chef, "Id", "Id", kitchen.ChefID);
-            ViewData["UtensilID"] = new SelectList(_context.Utensil, "Id", "Id", kitchen.UtensilID);
-            ViewData["LocationID"] = new SelectList(_context.Location, "Id", "Id", kitchen.LocationID);
+            ViewData["ChefID"] = new SelectList(_context.Chef, "Id", "Name", kitchen.ChefID);
+            ViewData["UtensilID"] = new SelectList(_context.Utensil, "Id", "Name", kitchen.UtensilID);
+            ViewData["LocationID"] = new SelectList(_context.Location, "Id", "Name", kitchen.LocationID);
             return View(kitchen);
         }
 

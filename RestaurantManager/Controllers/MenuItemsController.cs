@@ -49,8 +49,8 @@ namespace RestaurantManager.Controllers
         // GET: MenuItems/Create
         public IActionResult Create()
         {
-            ViewData["IngredientID"] = new SelectList(_context.Ingredient, "ID", "ID");
-            ViewData["KitchenID"] = new SelectList(_context.Kitchen, "Id", "Id");
+            ViewData["IngredientID"] = new SelectList(_context.Ingredient, "ID", "Name");
+            ViewData["KitchenID"] = new SelectList(_context.Kitchen, "Id", "Name");
             return View();
         }
 
@@ -67,8 +67,8 @@ namespace RestaurantManager.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IngredientID"] = new SelectList(_context.Ingredient, "ID", "ID", menuItem.IngredientID);
-            ViewData["KitchenID"] = new SelectList(_context.Kitchen, "Id", "Id", menuItem.KitchenID);
+            ViewData["IngredientID"] = new SelectList(_context.Ingredient, "ID", "Name", menuItem.IngredientID);
+            ViewData["KitchenID"] = new SelectList(_context.Kitchen, "Id", "Name", menuItem.KitchenID);
             return View(menuItem);
         }
 
@@ -85,8 +85,8 @@ namespace RestaurantManager.Controllers
             {
                 return NotFound();
             }
-            ViewData["IngredientID"] = new SelectList(_context.Ingredient, "ID", "ID", menuItem.IngredientID);
-            ViewData["KitchenID"] = new SelectList(_context.Kitchen, "Id", "Id", menuItem.KitchenID);
+            ViewData["IngredientID"] = new SelectList(_context.Ingredient, "ID", "Name", menuItem.IngredientID);
+            ViewData["KitchenID"] = new SelectList(_context.Kitchen, "Id", "Name", menuItem.KitchenID);
             return View(menuItem);
         }
 
@@ -122,8 +122,8 @@ namespace RestaurantManager.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IngredientID"] = new SelectList(_context.Ingredient, "ID", "ID", menuItem.IngredientID);
-            ViewData["KitchenID"] = new SelectList(_context.Kitchen, "Id", "Id", menuItem.KitchenID);
+            ViewData["IngredientID"] = new SelectList(_context.Ingredient, "ID", "Name", menuItem.IngredientID);
+            ViewData["KitchenID"] = new SelectList(_context.Kitchen, "Id", "Name", menuItem.KitchenID);
             return View(menuItem);
         }
 

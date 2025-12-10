@@ -25,7 +25,7 @@
                 @Html.DisplayNameFor(model => model.Chef)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Utensil)
+                Main @Html.DisplayNameFor(model => model.Utensil)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Location)
@@ -46,13 +46,13 @@
                 @Html.DisplayFor(modelItem => item.Setting)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Chef.Id)
+                @Html.DisplayFor(modelItem => item.Chef.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Utensil.Id)
+                @Html.DisplayFor(modelItem => item.Utensil.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Location.Id)
+                @Html.DisplayFor(modelItem => item.Location.Name)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

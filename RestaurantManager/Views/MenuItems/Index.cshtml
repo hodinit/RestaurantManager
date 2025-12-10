@@ -28,10 +28,10 @@
                 @Html.DisplayNameFor(model => model.Price)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Ingredient)
+                Star @Html.DisplayNameFor(model => model.Ingredient)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Kitchen)
+                @Html.DisplayNameFor(model => model.Kitchen) Type
             </th>
             <th></th>
         </tr>
@@ -55,10 +55,10 @@
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Ingredient.ID)
+                @Html.DisplayFor(modelItem => item.Ingredient.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Kitchen.Id)
+                @Html.DisplayFor(modelItem => item.Kitchen.Name) 
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |

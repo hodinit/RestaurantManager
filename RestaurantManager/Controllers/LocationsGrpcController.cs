@@ -108,5 +108,27 @@ namespace RestaurantManager.Controllers
             }
             return View(Location);
         }
+
+        [HttpGet]
+        public IActionResult Details(int? id)
+        {
+            if (id == null)
+                return NotFound();
+                        
+            var client = new LocationService.LocationServiceClient(channel);
+            Location grpcLocation = client.Get(new LocationId() { Id = (int)id });
+            if (grpcLocation == null)
+                return NotFound();
+
+            var modelLocation = new RestaurantManager.Models.Location
+            {
+                Id = grpcLocation.LocationId,
+                Name = grpcLocation.Name,
+                Adress = grpcLocation.Adress,
+                Number = grpcLocation.Number,
+            };
+
+            return View(modelLocation);
+        }
     }
 }
